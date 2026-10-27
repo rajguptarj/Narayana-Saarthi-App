@@ -1,0 +1,139 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: "Segoe UI", Arial, sans-serif;
+  color-scheme: dark;
+  --app-bg: #0b0a0f;
+  --app-text: #f8fafc;
+  --panel: #12111a;
+  --panel-soft: rgba(255, 255, 255, 0.05);
+  --panel-strong: #0f0e16;
+  --border: rgba(255, 255, 255, 0.12);
+  --muted: rgba(248, 250, 252, 0.7);
+  --muted-strong: rgba(248, 250, 252, 0.85);
+  --muted-soft: rgba(248, 250, 252, 0.4);
+  --grid: rgba(255, 255, 255, 0.04);
+  --brand-title: #f6eec8;
+  --brand-label: rgba(245, 195, 106, 0.8);
+  --overlay-backdrop: rgba(0, 0, 0, 0.7);
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+}
+
+.font-small {
+  font-size: 14px;
+}
+
+.font-medium {
+  font-size: 16px;
+}
+
+.font-large {
+  font-size: 18px;
+}
+
+.theme-light {
+  color-scheme: light;
+  --app-bg: #f8fafc;
+  --app-text: #0f172a;
+  --panel: #ffffff;
+  --panel-soft: rgba(15, 23, 42, 0.04);
+  --panel-strong: #f1f5f9;
+  --border: rgba(15, 23, 42, 0.12);
+  --muted: rgba(15, 23, 42, 0.7);
+  --muted-strong: rgba(15, 23, 42, 0.85);
+  --muted-soft: rgba(15, 23, 42, 0.45);
+  --grid: rgba(15, 23, 42, 0.06);
+  --brand-title: #1f3d63;
+  --brand-label: rgba(31, 61, 99, 0.8);
+  --overlay-backdrop: rgba(15, 23, 42, 0.35);
+}
+
+@layer utilities {
+  .animate-fade-in {
+    animation: fade-in 0.9s ease both;
+  }
+
+  .animate-rise {
+    animation: rise 0.8s ease both;
+  }
+
+  .animate-float-slow {
+    animation: float-slow 8s ease-in-out infinite;
+  }
+
+  .animate-glow-pulse {
+    animation: glow-pulse 4.5s ease-in-out infinite;
+  }
+}
+
+.focus-mode .animate-fade-in,
+.focus-mode .animate-rise,
+.focus-mode .animate-float-slow,
+.focus-mode .animate-glow-pulse {
+  animation: none !important;
+}
+
+.focus-mode .app-bg-aurora {
+  opacity: 0.2;
+}
+
+.focus-mode .app-bg-grid {
+  opacity: 0.2;
+}
+
+.focus-mode .focus-hide {
+  display: none !important;
+}
+
+.no-animations *,
+.no-animations *::before,
+.no-animations *::after {
+  animation: none !important;
+  transition: none !important;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float-slow {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-14px);
+  }
+}
+
+@keyframes glow-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 30px rgba(245, 195, 106, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 45px rgba(120, 190, 255, 0.3);
+  }
+}
